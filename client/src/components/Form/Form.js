@@ -25,17 +25,20 @@ const Form = ({ currentId, setCurrentId }) => {
             dispatch(createPost(postData));
         }
     }
-    const clear = () => {
+    
+  const clear = () => {
+    setCurrentId(0);
+    setPostData({ creator: '', title: '', message: '', tags: '', selectedFile: '' });
+  };
 
-    }
     return (
         <Paper className={classes.paper}>
             <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
-                <Typography variant="h6">Creating a Memory</Typography>
+                <Typography variant="h6">{currentId ? "Editing" : "Creating"}</Typography>
                 <TextField name="creator" variant="outlined" label="Creator" fullWidth value={postData.creator} onChange={(e) => setPostData({ ...postData, creator: e.target.value })}/>
-                <TextField name="title" variant="outlined" label="Title" fullWidth value={postData.Title} onChange={(e) => setPostData({ ...postData, Title: e.target.value })}/>
-                <TextField name="message" variant="outlined" label="Message" fullWidth value={postData.Message} onChange={(e) => setPostData({ ...postData, Message: e.target.value })}/>
-                <TextField name="tags" variant="outlined" label="Tags" fullWidth value={postData.Tags} onChange={(e) => setPostData({ ...postData, Tags: e.target.value })}/>
+                <TextField name="title" variant="outlined" label="Title" fullWidth value={postData.title} onChange={(e) => setPostData({ ...postData, title: e.target.value })}/>
+                <TextField name="message" variant="outlined" label="Message" fullWidth value={postData.message} onChange={(e) => setPostData({ ...postData, message: e.target.value })}/>
+                <TextField name="tags" variant="outlined" label="Tags" fullWidth value={postData.tags} onChange={(e) => setPostData({ ...postData, tags: e.target.value })}/>
                 <div className={classes.fileInput}>
                     <FileBase
                     type="file"
