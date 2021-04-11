@@ -9,6 +9,12 @@ Web Application that allows the user save their favorite memories
 
 Ernesto Mercado 2021
 
+#Technologies
+- MongoDB
+- Express
+- React
+- Nodejs
+- Redux
 ## Goal for this Project
 The goal of this project was to learn about the MERN stack and redux.
 ## Installation
