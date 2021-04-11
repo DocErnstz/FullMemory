@@ -9,7 +9,7 @@ Web Application that allows the user save their favorite memories
 
 Ernesto Mercado 2021
 
-#Technologies
+## Technologies
 - MongoDB
 - Express
 - React
