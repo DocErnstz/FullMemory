@@ -6,6 +6,7 @@ import Form from "./components/Form/Form";
 import useStyles from "./styles";
 import { useDispatch } from "react-redux";
 import { getPosts } from './actions/posts';
+import Navbar from "./components/Navbar/Navbar";
 const App = () => {
     const classes = useStyles();
     const dispatch = useDispatch();
@@ -15,6 +16,7 @@ const App = () => {
     }, [currentId, dispatch]);
     return (
         <Container maxidth="lg">
+            <Navbar/>
             <AppBar className={classes.appBar} position="static" color="inherit">
                 <Typography className={classes.heading} variant="h2" align="center"></Typography>
                 <img className={classes.image} src={memories} alt="memories" height="60"/>
