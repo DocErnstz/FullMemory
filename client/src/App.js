@@ -6,7 +6,10 @@ import Form from "./components/Form/Form";
 import useStyles from "./styles";
 import { useDispatch } from "react-redux";
 import { getPosts } from './actions/posts';
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
+import Home from "./components/Home/Home";
+import Auth from "./components/Auth/Auth";
 const App = () => {
     const classes = useStyles();
     const dispatch = useDispatch();
@@ -15,25 +18,17 @@ const App = () => {
         dispatch(getPosts());
     }, [currentId, dispatch]);
     return (
+        <BrowserRouter>
         <Container maxidth="lg">
             <Navbar/>
-            <AppBar className={classes.appBar} position="static" color="inherit">
-                <Typography className={classes.heading} variant="h2" align="center"></Typography>
-                <img className={classes.image} src={memories} alt="memories" height="60"/>
-            </AppBar>
-            <Grow in>
-                <Container>
-                    <Grid container justify="space-between" alignItems="stretch" spacing={3}>
-                        <Grid item xs={12} sm={7}>
-                            <Posts setCurrentId={setCurrentId}/>
-                        </Grid>
-                        <Grid item xs={12} sm={4}>
-                            <Form currentId={currentId} setCurrentId={setCurrentId}/>
-                        </Grid>
-                    </Grid>
-                </Container>
-            </Grow>
+            <Switch>
+                <Route path="/" exact component={Home}/>
+                <Route path="/auth" exact component={Auth}/>
+            </Switch>
+            
         </Container>
+        </BrowserRouter>
+        
     );    
 }
 
