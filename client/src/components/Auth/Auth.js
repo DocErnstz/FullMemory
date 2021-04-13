@@ -44,7 +44,7 @@ const Auth = () => {
       const googleError = () => {
           console.log("error");
       };
-     
+      
 
     return (
         <Container component="main" maxWidth="xs">
