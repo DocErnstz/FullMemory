@@ -7,10 +7,13 @@ import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui
 import Input from './Input';
 import { useHistory } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
+import { signin, signup } from '../../actions/auth';
+const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '' };
 
 const Auth = () => {
     const state = null;
     const classes = useStyles();
+    const [form, setForm] = useState(initialState);
     const [showPassword, setShowPassword] = useState(false);
     const handleShowPassword = () => setShowPassword(!showPassword);
     const [isSignup, setIsSignup] = useState(true);
@@ -19,11 +22,17 @@ const Auth = () => {
 
 
     const handleSubmit = (e) => {
+        e.preventDefault();
+       
+        if (isSignup) {
         
+          dispatch(signup(form, history));
+        } else {
+          dispatch(signin(form, history));
+        }
       };
-    const handleChange = () => {
+      const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-    };
     const switchMode = () => {
         setIsSignup((prevIsSignup) => !prevIsSignup);
         setShowPassword(false);
