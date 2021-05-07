@@ -15,6 +15,7 @@ Ernesto Mercado 2021
 - React
 - Nodejs
 - Redux
+- MaterialUI
 ## Goal for this Project
 The goal of this project was to learn about the MERN stack and redux.
 ## Installation
